@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
         @JsonProperty("border_crop")
         private String borderCrop;
 
-
         String getNormal(){
             return normal;
         }

@@ -32,6 +32,9 @@ public class Card {
     @JsonProperty("power")
     private String power;
 
+    @JsonProperty("rarity")
+    private String rarity;
+
     @JsonProperty("toughness")
     private String toughness;
 
@@ -47,6 +50,12 @@ public class Card {
     @JsonProperty("edhrec_rank")
     private int edhrecRank;
 
+    @JsonProperty("released_at")
+    private String releasedAt;
+
+    @JsonProperty("set_name")
+    private String setName;
+
     public String getNormalImageUrl() {
         return imageUris != null ? imageUris.getNormal() : null;
     }
@@ -54,7 +63,6 @@ public class Card {
     @Override
     public String toString() {
     return "Card {\n" +
-           "    object='" + object + "'\n" +
            "    id='" + id + "'\n" +
            "    name='" + name + "'\n" +
            "    manaCost='" + manaCost + "'\n" +
@@ -64,8 +72,9 @@ public class Card {
            "    power='" + power + "'\n" +
            "    toughness='" + toughness + "'\n" +
            "    colors=" + colors + "\n" +
-           "    imageUrls=" +
-           "}";
+           "    releasedAt: " + releasedAt + "\n"+
+           "    setName:  " + setName + "\n"+
+           "    rarity: " + rarity+ "\n" + 
+           "}\n";
     }
-
 }
