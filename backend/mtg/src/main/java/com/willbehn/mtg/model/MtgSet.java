@@ -7,16 +7,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class MtgSet {
     
     @JsonProperty("name")
-    private String name;
+    public String name;
 
     @JsonProperty("code")
-    private String setCode;
+    public String setCode;
 
     @JsonProperty("released_at")
-    private String releasedAt;
+    public String releasedAt;
 
     @JsonProperty("icon_svg_uri")
-    private String iconUri;
+    public String iconUri;
 
 
     @Override

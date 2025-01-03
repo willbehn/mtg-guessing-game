@@ -1,4 +1,4 @@
-package com.willbehn.mtg.model;
+package com.willbehn.mtg.model.cards;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,63 +1,64 @@
-package com.willbehn.mtg.model;
+package com.willbehn.mtg.model.cards;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+//TODO set variables to private after testing
 @JsonIgnoreProperties(ignoreUnknown = true) 
 public class Card {
 
     @JsonProperty("object")
-    private String object;
+    public String object;
 
     @JsonProperty("id")
-    private String id;
+    public String id;
 
     @JsonProperty("name")
-    private String name;
+    public String name;
 
     @JsonProperty("mana_cost")
-    private String manaCost;
+    public String manaCost;
 
     @JsonProperty("cmc")
-    private Double cmc;
+    public Double cmc;
 
     @JsonProperty("type_line")
-    private String typeLine;
+    public String typeLine;
 
     @JsonProperty("oracle_text")
-    private String oracleText;
+    public String oracleText;
 
     @JsonProperty("power")
-    private String power;
+    public String power;
 
     @JsonProperty("rarity")
-    private String rarity;
+    public String rarity;
 
     @JsonProperty("toughness")
-    private String toughness;
+    public String toughness;
 
     @JsonProperty("colors")
-    private List<String> colors;
+    public List<String> colors;
 
     @JsonProperty("image_uris")
-    private ImageUris imageUris;
+    public ImageUris imageUris;
 
     @JsonProperty("keywords")
-    private List<String> keywords;
+    public List<String> keywords;
 
     @JsonProperty("edhrec_rank")
-    private int edhrecRank;
+    public int edhrecRank;
 
     @JsonProperty("released_at")
-    private String releasedAt;
+    public String releasedAt;
 
     @JsonProperty("set_name")
-    private String setName;
+    public String setName;
 
     @JsonProperty("set")
-    private String setCode;
+    public String setCode;
 
     public String getNormalImageUrl() {
         return imageUris != null ? imageUris.getNormal() : null;

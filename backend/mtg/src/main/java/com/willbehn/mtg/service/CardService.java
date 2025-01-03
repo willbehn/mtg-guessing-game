@@ -1,7 +1,8 @@
 package com.willbehn.mtg.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.willbehn.mtg.model.Card;
+import com.willbehn.mtg.model.cards.Card;
+import com.willbehn.mtg.model.cards.CardList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,21 @@ public class CardService {
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         return objectMapper.readValue(response.body(), Card.class);
+    }
+
+
+    //TODO remove after testing
+    public CardList getCardList() throws IOException, InterruptedException {
+        String apiUrl = "https://api.scryfall.com/cards/search?order=edhrec&dir=asc&game=paper&q=format%3Aedh";
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                                        .uri(URI.create(apiUrl))
+                                        .build();
+
+        
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        return objectMapper.readValue(response.body(), CardList.class);
     }
 }
