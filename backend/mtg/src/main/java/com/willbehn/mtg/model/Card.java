@@ -56,6 +56,9 @@ public class Card {
     @JsonProperty("set_name")
     private String setName;
 
+    @JsonProperty("set")
+    private String setCode;
+
     public String getNormalImageUrl() {
         return imageUris != null ? imageUris.getNormal() : null;
     }
