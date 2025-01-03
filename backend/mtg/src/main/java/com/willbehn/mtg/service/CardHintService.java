@@ -1,7 +1,9 @@
 package com.willbehn.mtg.service;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +30,10 @@ public class CardHintService {
         Card card = null;
         MtgSet set = null;
 
+        Random random = new Random();
+
         try {
-            card = cardService.getCard();
+            card = cardService.getCardList().allCards.get(random.nextInt(50)); //TODO only for testing
             set = setService.getSet(card.setCode);
 
         } catch (IOException | InterruptedException e){
@@ -41,7 +45,7 @@ public class CardHintService {
         Hint hint3 = new Hint(HintType.SET_EXPANSION, set.iconUri);
         Hint hint4 = new Hint(HintType.MANA_COST, card.manaCost);
         
-        return new CardHintResponse(card.name, card.getNormalImageUrl(), List.of(hint1,hint2,hint3, hint4));
+        return new CardHintResponse(card.name, card.getNormalImageUrl(), LocalDate.now(), List.of(hint1,hint2,hint3, hint4));
     }
 
     

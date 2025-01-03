@@ -1,5 +1,6 @@
 package com.willbehn.mtg.model.hints;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public record CardHintResponse(String cardName, String imageUri, List<Hint> hints) {}
+public record CardHintResponse(String cardName, String imageUri, LocalDate date, List<Hint> hints) {}
