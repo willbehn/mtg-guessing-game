@@ -1,11 +1,16 @@
 package com.willbehn.mtg.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.willbehn.mtg.model.MtgSet;
 import com.willbehn.mtg.model.cards.Card;
+import com.willbehn.mtg.model.hints.CardHintResponse;
+import com.willbehn.mtg.model.hints.Hint;
+import com.willbehn.mtg.model.hints.HintType;
 
 @Service
 public class CardHintService {
@@ -19,13 +24,24 @@ public class CardHintService {
     }
 
 
-    public void createHints(){
+    public CardHintResponse createHints(){
+        Card card = null;
+        MtgSet set = null;
+
         try {
-            Card card = cardService.getCard();
+            card = cardService.getCard();
+            set = setService.getSet(card.setCode);
+
         } catch (IOException | InterruptedException e){
             //TODO
         }
+
+        Hint hint1 = new Hint(HintType.ARTWORK, card.getArtCropImageUrl());
+        Hint hint2 = new Hint(HintType.CARD_TYPE, card.typeLine);
+        Hint hint3 = new Hint(HintType.SET_EXPANSION, set.iconUri);
+        Hint hint4 = new Hint(HintType.MANA_COST, card.manaCost);
         
+        return new CardHintResponse(card.name, card.getNormalImageUrl(), List.of(hint1,hint2,hint3, hint4));
     }
 
     

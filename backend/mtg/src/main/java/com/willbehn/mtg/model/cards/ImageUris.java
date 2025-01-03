@@ -27,4 +27,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
             return normal;
         }
 
+        String getArtCrop(){
+            return artCrop;
+        }
+
 }

@@ -64,6 +64,10 @@ public class Card {
         return imageUris != null ? imageUris.getNormal() : null;
     }
 
+    public String getArtCropImageUrl(){
+        return imageUris != null ? imageUris.getArtCrop() : null;
+    }
+
     @Override
     public String toString() {
     return "Card {\n" +
