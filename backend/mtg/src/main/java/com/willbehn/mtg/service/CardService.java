@@ -35,7 +35,7 @@ public class CardService {
 
     //TODO remove after testing
     public CardList getCardList() throws IOException, InterruptedException {
-        String apiUrl = "https://api.scryfall.com/cards/search?order=edhrec&dir=asc&game=paper&q=format%3Aedh";
+        String apiUrl = "https://api.scryfall.com/cards/search?order=edhrec&dir=asc&game=paper&q=is%3Acommander";
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

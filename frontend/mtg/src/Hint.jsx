@@ -20,6 +20,12 @@ const Hint = ({hintData, index}) => {
                 ) : hintData.type === "MANA_COST" ? (   
                     <h3>The mana cost of the card: {hintData.data}</h3>
 
+                ) : hintData.type === "ORACLE_TEXT" ? (   
+                    <h3>Oracle text: "{hintData.data}"</h3>
+
+                ) : hintData.type === "POWER_THOUGHNESS" ? (   
+                    <h3>Power and thoughness: "{hintData.data}"</h3>
+
                 ) : null}
         </>
 
