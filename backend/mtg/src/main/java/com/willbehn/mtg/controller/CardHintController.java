@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.willbehn.mtg.model.hints.CardHintResponse;
 import com.willbehn.mtg.service.CardHintService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -23,6 +25,7 @@ public class CardHintController {
     }
 
     @GetMapping("test")
+    @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<CardHintResponse> getDaily() {
         CardHintResponse response = hintService.createHints();
 
