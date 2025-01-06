@@ -13,7 +13,6 @@ export default function App() {
   return (
     <>
     <div>
-      <button>Dette er en test knapp</button>
       <HintList></HintList>
     </div>
     </>
