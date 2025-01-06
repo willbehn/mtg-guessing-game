@@ -1,41 +1,28 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
-const Hint = () => {
-    const [hintData, setHintData] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-
-    const fetchCardHints = async() => {
-        await axios.get('http://localhost:8080/api/test')
-            .then(response => {
-                setHintData(response.data);
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error("Error fetching card image:", error);
-                setLoading(false);
-            });
-    };
-
-    useEffect(() => {
-        fetchCardHints();
-    }, []);
-
+const Hint = ({hintData, index}) => {
 
     return (
-        <div>
-            <h1>Hints:</h1>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <div>
-                    <p>API Response: {JSON.stringify(hintData)}</p> 
-                    <img src={hintData.imageUri}></img>
-                </div>
-            )}
-        </div>
+        <>
+            <h2>Hint {index+1}: </h2>
+                {hintData.type === "ARTWORK" ? (
+                    <img style={{ filter: 'blur(5px)' }} src={hintData.data}></img>
+
+                ) : hintData.type === "CARD_TYPE" ? (   
+                    <h3>The type of the card is: {hintData.data}</h3>
+
+                ) : hintData.type === "SET_EXPANSION" ? (
+                    <div>
+                        <h3>The set the card was printed in: </h3>
+                        <img src={hintData.data} style={{width: 100, height: 100}}></img>
+                    </div>
+                ) : hintData.type === "CARD_TYPE" ? (   
+                    <h3>The type of the card is: {hintData.data}</h3>
+
+                ) : null}
+        </>
+
     );
 }
 
 export default Hint;
+
+//  <p>Hint Response: {JSON.stringify(hintData)}</p> 

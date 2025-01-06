@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Hint from './Hint'
+import HintList from './HintList'
 
 export default function App() {
   const [count, setCount] = useState(0)
@@ -14,11 +14,8 @@ export default function App() {
     <>
     <div>
       <button>Dette er en test knapp</button>
-      <Hint></Hint>
+      <HintList></HintList>
     </div>
-      
-      
-
     </>
   )
 }
