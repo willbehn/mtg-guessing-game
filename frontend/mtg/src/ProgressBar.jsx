@@ -1,12 +1,16 @@
+import './ProgressBar.css';
+
 const ProgressBar = ({currentHint, totalProgress, onProgressClick}) => {
     return (
-        <div>
-            {Array.from({length: totalProgress}).map((_,index) =>
+        <div className="progressContainer">
+            {Array.from({length: totalProgress+1}).map((_,index) =>
                 (   
                     <button 
                         onClick={() => onProgressClick(index)}
                         key={index} 
-                        style={{width : 30, height : 30}}> {index+1}  
+                        className={"progressButton"}
+                        > 
+                        {index+1}  
                         
                     </button>
                 )

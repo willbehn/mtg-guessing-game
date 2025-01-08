@@ -6,8 +6,8 @@ import ProgressBar from './ProgressBar';
 const HintList = () => {
     const [hintData, setHintData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [currentHint, setCurrentHint] = useState(0);
-    const [totalProgress, setTotalProgress] = useState(1)
+    const [currentHint, setCurrentHint] = useState(1);
+    const [totalProgress, setTotalProgress] = useState(0)
     const [guess, setGuess] = useState("");
     const [correctGuess, setCorrectGuess] = useState(false);
 
@@ -51,24 +51,24 @@ const HintList = () => {
 
 
     return (
-        <div style={styles.gameContainer}>
+        <div>
             <h1>Magic: The gathering - guess the card</h1>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div> 
+                <div style={styles.gameContainer}> 
                     {console.log(hintData.cardName)}
                     {totalProgress < hintData.hints.length ? (
                         <>
-                            <button onClick={nextHint}>Next hint</button>
-                            <ProgressBar totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
                             <div>
                                 <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint+1} />
                             </div>
-                            <div>
-                                <input style={styles.inputarea} value={guess} onChange={e => setGuess(e.target.value)} placeholder='Type you guess here...'></input>
-                                <button onClick={handleSumbit}> Submit </button>
+                            <div style={styles.inputContainer}>
+                                <button onClick={nextHint}>Next hint</button>
+                                <ProgressBar totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
                             </div>
+                            <input style={styles.inputarea} value={guess} onChange={e => setGuess(e.target.value)} placeholder='Type you guess here...'></input>
+                            <button onClick={handleSumbit}> Submit </button>
                         </>
                     ) : (
                         <> 
@@ -92,8 +92,12 @@ export default HintList;
 
 const styles = {
     gameContainer: {
-        height: 800,
-        width: 600
+        display: 'flex',
+        flexDirection: 'column', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        height: '80vh', 
+        width: '100%',   
     },
     inputarea: {
         width: '80%',
@@ -102,4 +106,8 @@ const styles = {
         border: 'none',
         margin: '10px',
         fontSize: '20px'
-    }}
+    }, 
+    inputContainer : {
+        width: '80%'
+    }
+}

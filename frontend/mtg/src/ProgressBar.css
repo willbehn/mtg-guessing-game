@@ -1,0 +1,20 @@
+.progressContainer {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.progressButton {
+    height: 30;
+    width: 30;
+    flex: 1;
+    border-radius: 0px;
+}
+
+.progressButton.selected {
+    background-color: green;
+    color: white;
+    border: 1px solid darkgreen;
+}
+
