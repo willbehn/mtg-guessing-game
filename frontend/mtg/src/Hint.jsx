@@ -1,4 +1,18 @@
-const Hint = ({hintData, index}) => {
+const manaCost = (mc, symbols) => {
+    console.log(mc)
+    console.log(symbols)
+    const manaSymbol = symbols.data.find((element) => {
+        return element.symbol === mc;
+    })
+
+    return (
+        <>
+            <h3>The mana cost of the card:</h3>
+            <img src={manaSymbol.svg_uri} style={{width: 80, height: 80}}></img>
+        </>)
+}
+
+const Hint = ({hintData, symbolData, index}) => {
 
     return (
         <>
@@ -17,14 +31,14 @@ const Hint = ({hintData, index}) => {
                 ) : hintData.type === "CARD_TYPE" ? (   
                     <h3>The type of the card is: {hintData.data}</h3>
 
-                ) : hintData.type === "MANA_COST" ? (   
-                    <h3>The mana cost of the card: {hintData.data}</h3>
-
+                ) : hintData.type === "MANA_COST" ? (
+                    manaCost(hintData.data, symbolData)
+        
                 ) : hintData.type === "ORACLE_TEXT" ? (   
                     <h3>Oracle text: "{hintData.data}"</h3>
 
                 ) : hintData.type === "POWER_THOUGHNESS" ? (   
-                    <h3>Power and thoughness: "{hintData.data}"</h3>
+                    <h3>Power and thoughness "{hintData.data}"</h3>
 
                 ) : null}
         </>
