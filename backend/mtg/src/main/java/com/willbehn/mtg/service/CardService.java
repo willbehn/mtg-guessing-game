@@ -32,10 +32,8 @@ public class CardService {
         return objectMapper.readValue(response.body(), Card.class);
     }
 
-
-    //TODO remove after testing
     public CardList getCardList() throws IOException, InterruptedException {
-        String apiUrl = "https://api.scryfall.com/cards/search?order=edhrec&dir=asc&game=paper&q=is%3Acommander";
+        String apiUrl = "https://api.scryfall.com/cards/search?q=set%3Dltr";
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

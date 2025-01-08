@@ -38,8 +38,9 @@ const HintList = () => {
         } else {nextHint()}
     }
 
+
     return (
-        <div>
+        <div style={styles.gameContainer}>
             <h1>Magic: The gathering - guess the card</h1>
             {loading ? (
                 <p>Loading...</p>
@@ -48,21 +49,21 @@ const HintList = () => {
                     {console.log(hintData.cardName)}
                     {currentHint < hintData.hints.length ? (
                         <>
+                            <button onClick={nextHint}>Next hint</button>
                             <div>
-                                <Hint hintData={hintData.hints[currentHint]} index={currentHint} />
+                                <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint} />
                             </div>
                             <div>
-                                <textarea value={guess} onChange={e => setGuess(e.target.value)} placeholder='Type you guess here...'></textarea>
+                                <input style={styles.inputarea} value={guess} onChange={e => setGuess(e.target.value)} placeholder='Type you guess here...'></input>
                                 <button onClick={handleSumbit}> Submit </button>
                             </div>
-                            <button onClick={nextHint}>Next hint</button>
                         </>
                     ) : (
                         <> 
                             {correctGuess ? (
-                                <h3>You guessed correct!</h3>
+                                <h3>🎉 You guessed it right!</h3>
                             ) : (
-                                <h3>Better luck next time</h3>
+                                <h3>❌ Better luck next time!</h3>
                             )}
 
                             <h2>The card was {hintData.cardName} </h2>
@@ -80,3 +81,17 @@ const HintList = () => {
 }
 
 export default HintList;
+
+const styles = {
+    gameContainer: {
+        height: 800,
+        width: 600
+    },
+    inputarea: {
+        width: '80%',
+        padding: '10px',
+        borderRadius: '8px',
+        border: 'none',
+        margin: '10px',
+        fontSize: '20px'
+    }}

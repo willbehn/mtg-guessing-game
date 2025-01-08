@@ -13,41 +13,48 @@ import com.willbehn.mtg.model.cards.Card;
 import com.willbehn.mtg.model.hints.CardHintResponse;
 import com.willbehn.mtg.model.hints.Hint;
 import com.willbehn.mtg.model.hints.HintType;
+import com.willbehn.mtg.model.symbols.SymbolList;
 
 @Service
 public class CardHintService {
     private final CardService cardService;
     private final SetService setService;
+    private final SymbolService symbolService;
 
     @Autowired
-    public CardHintService(CardService cardService, SetService setService){
+    public CardHintService(CardService cardService, SetService setService, SymbolService symbolService){
         this.cardService = cardService;
         this.setService = setService;
+        this.symbolService = symbolService;
     }
 
 
     public CardHintResponse createHints(){
         Card card = null;
         MtgSet set = null;
+        SymbolList symbols = null;
 
         Random random = new Random();
 
         try {
-            card = cardService.getCardList().allCards.get(random.nextInt(175)); //TODO only for testing
+            card = cardService.getCardList().allCards.get(random.nextInt(50)); //TODO only for testing
             set = setService.getSet(card.setCode);
+
+            //Mby remove symbol retrieving from backend
+            symbols = symbolService.getSymbols();
 
         } catch (IOException | InterruptedException e){
             //TODO
         }
 
-        Hint hint1 = new Hint(HintType.ARTWORK, card.getArtCropImageUrl());
-        Hint hint2 = new Hint(HintType.CARD_TYPE, card.typeLine);
-        Hint hint3 = new Hint(HintType.SET_EXPANSION, set.iconUri);
-        Hint hint4 = new Hint(HintType.MANA_COST, card.manaCost);
-        Hint hint5 = new Hint(HintType.ORACLE_TEXT, card.oracleText);
-        Hint hint6 = new Hint(HintType.POWER_THOUGHNESS, "{" + card.power + "}{" + card.toughness + "}");
+        Hint artHint = new Hint(HintType.ARTWORK, card.getArtCropImageUrl());
+        Hint typeHint = new Hint(HintType.CARD_TYPE, card.typeLine);
+        Hint setHint = new Hint(HintType.SET_EXPANSION, set.iconUri);
+        Hint manaHint = new Hint(HintType.MANA_COST, card.manaCost);
+        Hint oracleHint = new Hint(HintType.ORACLE_TEXT, card.oracleText);
+        Hint statHInt = new Hint(HintType.POWER_THOUGHNESS, "{" + card.power + "}{" + card.toughness + "}");
         
-        return new CardHintResponse(card.name, card.getNormalImageUrl(), LocalDate.now(), List.of(hint1,hint2,hint3,hint4,hint5,hint6));
+        return new CardHintResponse(card.name, card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,setHint,statHInt, oracleHint,artHint), symbols);
     }
 
     

@@ -12,9 +12,7 @@ export default function App() {
 
   return (
     <>
-    <div>
       <HintList></HintList>
-    </div>
     </>
   )
 }
