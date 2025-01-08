@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Hint from './Hint';
+import ProgressBar from './ProgressBar';
 
 const HintList = () => {
     const [hintData, setHintData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [currentHint, setCurrentHint] = useState(0);
+    const [totalProgress, setTotalProgress] = useState(1)
     const [guess, setGuess] = useState("");
     const [correctGuess, setCorrectGuess] = useState(false);
 
@@ -25,16 +27,25 @@ const HintList = () => {
             });
     };
 
+    useEffect(() => {
+        setCurrentHint(totalProgress)
+    }, [totalProgress]
+    )
+
     const nextHint = () => {
-        setCurrentHint((prev) =>
+        setTotalProgress((prev) =>
             prev+1 
         )
+    }
+
+    const handleProgressClick = (newIndex) => {
+        setCurrentHint(newIndex)
     }
 
     const handleSumbit = () => {
         if (guess === hintData.cardName){
             setCorrectGuess(true);
-            setCurrentHint(hintData.hints.length)
+            setTotalProgress(hintData.hints.length)
         } else {nextHint()}
     }
 
@@ -47,11 +58,12 @@ const HintList = () => {
             ) : (
                 <div> 
                     {console.log(hintData.cardName)}
-                    {currentHint < hintData.hints.length ? (
+                    {totalProgress < hintData.hints.length ? (
                         <>
                             <button onClick={nextHint}>Next hint</button>
+                            <ProgressBar totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
                             <div>
-                                <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint} />
+                                <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint+1} />
                             </div>
                             <div>
                                 <input style={styles.inputarea} value={guess} onChange={e => setGuess(e.target.value)} placeholder='Type you guess here...'></input>
@@ -70,11 +82,7 @@ const HintList = () => {
                             <img src={hintData.imageUri}></img>
                         </>
                     )}      
-                   
-                    
- 
                 </div>
-                
             )}
         </div>
     );
