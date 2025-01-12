@@ -22,7 +22,7 @@ const findSymbol = (sm, symbols) =>{
 
 const Hint = ({hintData, symbolData, index}) => {
     return (
-        <>
+        <div style={{height:540, width:700, padding:10}}>
             <h2>Hint {index}: </h2>
                 {hintData.type === "ARTWORK" ? (
                     <img src={hintData.data}></img>
@@ -51,7 +51,7 @@ const Hint = ({hintData, symbolData, index}) => {
                     </>
 
                 ) : null}
-        </>
+        </div>
 
     );
 }

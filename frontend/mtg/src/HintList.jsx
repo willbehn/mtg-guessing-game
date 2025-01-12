@@ -43,7 +43,7 @@ const HintList = () => {
     }
 
     const handleSumbit = () => {
-        if (guess === hintData.cardName){
+        if (guess.toLowerCase() === hintData.cardName.toLowerCase()){
             setCorrectGuess(true);
             setTotalProgress(hintData.hints.length)
         } else {nextHint()}
@@ -96,7 +96,7 @@ const styles = {
         flexDirection: 'column', 
         justifyContent: 'center', 
         alignItems: 'center', 
-        height: '80vh', 
+        height: '60vh', 
         width: '100%',   
     },
     inputarea: {
