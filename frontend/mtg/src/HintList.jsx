@@ -19,6 +19,7 @@ const HintList = () => {
         await axios.get('http://localhost:8080/api/test')
             .then(response => {
                 setHintData(response.data);
+                console.log(response.data)
                 setLoading(false);
             })
             .catch(error => {
@@ -79,7 +80,11 @@ const HintList = () => {
                             )}
 
                             <h2>The card was {hintData.cardName} </h2>
+                            <a href={hintData.edhrecUrl} rel="noreferrer">
+                                EDHREC
+                            </a>
                             <img src={hintData.imageUri}></img>
+
                         </>
                     )}      
                 </div>
@@ -96,7 +101,7 @@ const styles = {
         flexDirection: 'column', 
         justifyContent: 'center', 
         alignItems: 'center', 
-        height: '60vh', 
+        height: '72vh', 
         width: '100%',   
     },
     inputarea: {

@@ -37,7 +37,8 @@ public class CardHintService {
         Random random = new Random();
 
         try {
-            card = cardService.getCardList().allCards.get(random.nextInt(50)); //TODO only for testing
+            //card = cardService.getCardList().allCards.get(random.nextInt(175)); //TODO only for testing
+            card = cardService.getCardTest();
             set = setService.getSet(card.setCode);
 
             //Mby remove symbol retrieving from backend
@@ -54,7 +55,7 @@ public class CardHintService {
         Hint oracleHint = new Hint(HintType.ORACLE_TEXT, card.oracleText);
         Hint statHInt = new Hint(HintType.POWER_THOUGHNESS, "{" + card.power + "}{" + card.toughness + "}");
         
-        return new CardHintResponse(card.name, card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,setHint,statHInt, oracleHint,artHint), symbols);
+        return new CardHintResponse(card.name, card.getEdhrecUri(),card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,setHint,statHInt, oracleHint,artHint), symbols);
     }
 
     

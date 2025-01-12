@@ -60,12 +60,19 @@ public class Card {
     @JsonProperty("set")
     public String setCode;
 
+    @JsonProperty("related_uris")
+    public RelatedUris relatedUris;
+
     public String getNormalImageUrl() {
         return imageUris != null ? imageUris.getNormal() : null;
     }
 
     public String getArtCropImageUrl(){
         return imageUris != null ? imageUris.getArtCrop() : null;
+    }
+
+    public String getEdhrecUri(){
+        return relatedUris != null ? relatedUris.getEdhUri() : null;
     }
 
     @Override

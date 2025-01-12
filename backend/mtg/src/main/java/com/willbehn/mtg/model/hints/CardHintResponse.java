@@ -5,4 +5,4 @@ import java.util.List;
 
 import com.willbehn.mtg.model.symbols.SymbolList;
 
-public record CardHintResponse(String cardName, String imageUri, LocalDate date, List<Hint> hints, SymbolList currentSymbols) {}
+public record CardHintResponse(String cardName, String edhrecUrl,String imageUri, LocalDate date, List<Hint> hints, SymbolList currentSymbols) {}
