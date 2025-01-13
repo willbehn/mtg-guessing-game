@@ -1,5 +1,5 @@
 import axios from "axios"
-import {useState } from 'react';
+import {useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
 import "./Searchbar.css"
 
@@ -28,7 +28,16 @@ const Searchbar = ({query, setQuery}) =>{
             .finally(() => {
                 setLoading(false)
             });
-    }, 1200)
+    }, 1000)
+
+    useEffect(() => {
+        fetchCardNames();
+
+        return () => {
+            fetchCardNames.cancel();
+        }
+
+    }, [query])
 
     const handleSelectedCard = (cardName) => {
         setQuery(cardName)
@@ -39,7 +48,6 @@ const Searchbar = ({query, setQuery}) =>{
     const handleInputChange = (e) => {
         const value = e.target.value;
         setQuery(value);
-        fetchCardNames(value);
     };
 
     return (
