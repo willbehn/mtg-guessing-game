@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Hint from './Hint';
 import ProgressBar from './ProgressBar';
-import "./HintList.css"
+import "./GuessTheMtgCard.css"
 import Searchbar from './Searchbar';
 
-const HintList = () => {
+const GuessTheMtgCard = () => {
     const [hintData, setHintData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [currentHint, setCurrentHint] = useState(1);
@@ -98,6 +98,6 @@ const HintList = () => {
     );
 }
 
-export default HintList;
+export default GuessTheMtgCard;
 
 

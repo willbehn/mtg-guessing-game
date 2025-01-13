@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import HintList from './HintList'
+import HintList from './GuessTheMtgCard'
+import GuessTheMtgCard from './GuessTheMtgCard'
 
 export default function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,7 @@ export default function App() {
 
   return (
     <>
-      <HintList></HintList>
+      <GuessTheMtgCard></GuessTheMtgCard>
     </>
   )
 }
