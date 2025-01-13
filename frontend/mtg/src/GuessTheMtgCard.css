@@ -7,6 +7,12 @@
     width: 100%;
 }
 
+.buttonContainer {
+    flex-direction: column;
+    flex: 1;
+    padding: 12px;
+}
+
 .inputContainer {
     width: 80%;
     display: flex;

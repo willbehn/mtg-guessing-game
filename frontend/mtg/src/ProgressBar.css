@@ -3,6 +3,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    margin: 4px;
 }
 
 .progressButton {
@@ -12,9 +13,21 @@
     border-radius: 0px;
 }
 
-.progressButton.selected {
+.currentProgressButton {
+    height: 30;
+    width: 30;
+    flex: 1;
+    border-radius: 0px;
     background-color: green;
-    color: white;
-    border: 1px solid darkgreen;
 }
+
+
+.actionButton {
+    height: 30;
+    width: 30;
+    flex: 1;
+    border-radius: 0px;
+    padding: 10px;
+}
+
 

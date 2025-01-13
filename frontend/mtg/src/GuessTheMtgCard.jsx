@@ -67,13 +67,16 @@ const GuessTheMtgCard = () => {
                                 <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint+1} />
                             </div>
                             <div className='inputContainer'>
-                                <button onClick={nextHint}>Next hint</button>
-                                <ProgressBar totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
+                                <ProgressBar currentHint={currentHint} totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
                                 <Searchbar query={query} setQuery={setQuery}></Searchbar>
                                 
                             </div>
 
-                            <button onClick={handleSumbit}> Submit </button>
+                            <div className='buttonContainer'>
+                                <button className='actionButton' onClick={handleSumbit}> Submit </button>
+                                <button className='actionButton' onClick={nextHint}>Next hint</button>
+                            </div>
+
 
                         </>
                     ) : (
