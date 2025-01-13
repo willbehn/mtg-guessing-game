@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Hint from './Hint';
 import ProgressBar from './ProgressBar';
+import "./HintList.css"
+import Searchbar from './Searchbar';
 
 const HintList = () => {
     const [hintData, setHintData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [currentHint, setCurrentHint] = useState(1);
     const [totalProgress, setTotalProgress] = useState(0)
-    const [guess, setGuess] = useState("");
+    const [query, setQuery] = useState("");
     const [correctGuess, setCorrectGuess] = useState(false);
 
     useEffect(() => {
@@ -44,7 +46,7 @@ const HintList = () => {
     }
 
     const handleSumbit = () => {
-        if (guess.toLowerCase() === hintData.cardName.toLowerCase()){
+        if (query.toLowerCase() === hintData.cardName.toLowerCase()){
             setCorrectGuess(true);
             setTotalProgress(hintData.hints.length)
         } else {nextHint()}
@@ -57,19 +59,22 @@ const HintList = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div style={styles.gameContainer}> 
+                <div className='gameContainer'> 
                     {console.log(hintData.cardName)}
                     {totalProgress < hintData.hints.length ? (
                         <>
                             <div>
                                 <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint+1} />
                             </div>
-                            <div style={styles.inputContainer}>
+                            <div className='inputContainer'>
                                 <button onClick={nextHint}>Next hint</button>
                                 <ProgressBar totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
+                                <Searchbar query={query} setQuery={setQuery}></Searchbar>
+                                
                             </div>
-                            <input style={styles.inputarea} value={guess} onChange={e => setGuess(e.target.value)} placeholder='Type you guess here...'></input>
+
                             <button onClick={handleSumbit}> Submit </button>
+
                         </>
                     ) : (
                         <> 
@@ -95,24 +100,4 @@ const HintList = () => {
 
 export default HintList;
 
-const styles = {
-    gameContainer: {
-        display: 'flex',
-        flexDirection: 'column', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '72vh', 
-        width: '100%',   
-    },
-    inputarea: {
-        width: '80%',
-        padding: '10px',
-        borderRadius: '8px',
-        border: 'none',
-        margin: '10px',
-        fontSize: '20px'
-    }, 
-    inputContainer : {
-        width: '80%'
-    }
-}
+
