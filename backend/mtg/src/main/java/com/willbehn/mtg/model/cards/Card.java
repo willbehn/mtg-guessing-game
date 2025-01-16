@@ -45,6 +45,9 @@ public class Card {
     @JsonProperty("image_uris")
     public ImageUris imageUris;
 
+    @JsonProperty("artist")
+    public String artist;
+
     @JsonProperty("keywords")
     public List<String> keywords;
 
