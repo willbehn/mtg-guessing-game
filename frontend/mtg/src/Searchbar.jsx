@@ -17,7 +17,12 @@ const Searchbar = ({query, setQuery}) =>{
         setLoading(true)
 
 
-        await axios.get(`https://api.scryfall.com/cards/search?q=name:*${query}*`)
+        await axios.get(`https://api.scryfall.com/cards/search?q=name:*${query}*`, 
+           { headers: {
+                'User-Agent': 'MTGGuessingApp/0.1',
+                'Accept': 'application/json;q=0.9,*/*;q=0.8'
+            }}
+        )
             .then(response => {
                 setSuggestions(response.data.data.map(item => item.name))
 
