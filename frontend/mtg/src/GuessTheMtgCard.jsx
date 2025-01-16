@@ -55,7 +55,7 @@ const GuessTheMtgCard = () => {
 
     return (
         <div>
-            <h1>Magic: The gathering - guess the card</h1>
+            <h1>Mana Guess - The MTG card guessing game</h1>
             {loading ? (
                 <p>Loading...</p>
             ) : (
@@ -80,23 +80,33 @@ const GuessTheMtgCard = () => {
 
                         </>
                     ) : (
-                        <> 
+                        <div className='solutionContainer'> 
                             {correctGuess ? (
-                                <h3>🎉 You guessed it right!</h3>
+                                <h3>🎉 You guessed it right! 🎉 </h3>
                             ) : (
-                                <h3>❌ Better luck next time!</h3>
+                                <h3>❌ Better luck next time! ❌</h3>
                             )}
 
-                            <h2>The card was {hintData.cardName} </h2>
-                            <a href={hintData.edhrecUrl} rel="noreferrer">
-                                EDHREC
-                            </a>
-                            <img src={hintData.imageUri}></img>
+                            <div>
+                                <h2>
+                                    The card was: <span style={{ color: "purple" }}>{`${hintData.cardName}`}</span>
+                                </h2>
 
-                        </>
+                                <img style={{width:360, height: 'auto'}} src={hintData.imageUri}></img>
+
+                                <a href={hintData.edhrecUrl} rel="noreferrer">
+                                    <h3>EDHREC</h3>
+                                </a>
+
+                            </div>
+
+
+                        </div>
                     )}      
                 </div>
             )}
+
+            <p style={{color: 'gray'}}>Card Data provided by Scryfall</p>
         </div>
     );
 }

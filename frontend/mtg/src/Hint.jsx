@@ -6,7 +6,7 @@ const displaySymbol = (symbolString, symbols) => {
                 <img 
                     key={index} 
                     src={findSymbol(element,symbols)?.svg_uri}
-                    style={{width : 60, height : 60}}>
+                    style={{width : 100, height : 100, padding: 4}}>
                 </img>
             ))}
         </>
@@ -22,31 +22,38 @@ const findSymbol = (sm, symbols) =>{
 
 const Hint = ({hintData, symbolData, index}) => {
     return (
-        <div style={{height:540, width:700, padding:10}}>
-            <h2>Hint {index}: </h2>
+        <div style={{height:'50vh', width:'50vw', padding:10, alignItems: 'center'}}>
                 {hintData.type === "ARTWORK" ? (
-                    <img src={hintData.data}></img>
-
-                ) : hintData.type === "CARD_TYPE" ? (   
-                    <h3>The type of the card is: {hintData.data}</h3>
+                    <>
+                        <h3>Hint {index} - Artwork</h3>
+                        <img style={{width:460, height: 'auto'}} src={hintData.data}></img>
+                    </>
+                ) : hintData.type === "CARD_TYPE" ? (  
+                    <>
+                        <h3>Hint {index} -  Card type</h3> 
+                        <p style={{fontSize: 20}}>{hintData.data}</p>
+                    </>
 
                 ) : hintData.type === "SET_EXPANSION" ? (
                     <>
-                        <h3>The set the card was last printed in: </h3>
+                        <h3>Hint {index} - last printed in set </h3>
                         <img src={hintData.data} style={{width: 200, height: 200}}></img>
                     </>
                 ) :  hintData.type === "MANA_COST" ? (
                     <>
-                        <h3>The mana cost of the card:</h3>
+                        <h3>Hint {index} - Mana cost</h3>
                         {displaySymbol(hintData.data, symbolData)}
                     </>
         
-                ) : hintData.type === "ORACLE_TEXT" ? (   
-                    <h3>Oracle text: "{hintData.data}"</h3>
+                ) : hintData.type === "ORACLE_TEXT" ? (
+                    <>
+                        <h3>Hint {index} -  Oracle text</h3>    
+                        <p style={{fontSize: 20}}>{hintData.data}</p>
+                    </>
 
                 ) : hintData.type === "POWER_THOUGHNESS" ? (  
                     <>
-                        <h3>The statline of the card: </h3>
+                        <h3>Hint {index} -  Statline</h3> 
                         {displaySymbol(hintData.data, symbolData)}
                     </>
 

@@ -25,7 +25,7 @@ public class CardHintController {
     }
 
     @GetMapping("test")
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "http://192.168.50.55:5173/"})
     public ResponseEntity<CardHintResponse> getDaily() {
         CardHintResponse response = hintService.createHints();
 
