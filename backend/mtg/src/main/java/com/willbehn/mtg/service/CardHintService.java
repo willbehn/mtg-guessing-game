@@ -48,14 +48,18 @@ public class CardHintService {
             //TODO
         }
 
-        Hint artHint = new Hint(HintType.ARTWORK, card.getArtCropImageUrl());
+        Hint artHint = new Hint(HintType.ARTWORK, card.getArtCropImageUrl() + "&" + card.artist);
         Hint typeHint = new Hint(HintType.CARD_TYPE, card.typeLine);
+        Hint rarityHint = new Hint(HintType.RARITY, card.rarity);
+        Hint releasedAtHint = new Hint(HintType.RELEASED_AT, card.releasedAt);
+        Hint keywordHint= new Hint(HintType.KEYWORDS, card.keywords.toString());
+
         Hint setHint = new Hint(HintType.SET_EXPANSION, set.iconUri);
         Hint manaHint = new Hint(HintType.MANA_COST, card.manaCost);
         Hint oracleHint = new Hint(HintType.ORACLE_TEXT, card.oracleText);
         Hint statHInt = new Hint(HintType.POWER_THOUGHNESS, "{" + card.power + "}{" + card.toughness + "}");
         
-        return new CardHintResponse(card.name, card.getEdhrecUri(),card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,setHint,statHInt, oracleHint,artHint), symbols);
+        return new CardHintResponse(card.name, card.getEdhrecUri(),card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,releasedAtHint,statHInt, keywordHint,rarityHint,artHint), symbols);
     }
 
     

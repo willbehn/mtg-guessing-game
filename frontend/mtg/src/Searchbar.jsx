@@ -65,26 +65,30 @@ const Searchbar = ({query, setQuery}) =>{
                 onChange={handleInputChange}
             />
 
-    
-            {suggestions.length > 0 && (
+            {loading ? (
                 <ul className="dropdown">
-
-                    {loading && (
-                        <li className="dropdown-item">
-                        Loading...
-                        </li>
-                    )}
-
-                    {!loading && suggestions.map((cardName, index) => (
-                        <li 
-                            key={index} 
-                            onClick={() => handleSelectedCard(cardName)}
-                            className="dropdown-item"
-                        >
-                            {cardName}
-                        </li>
-                    ))}
+                    <li className="dropdown-item">Loading...</li>
                 </ul>
+            ) : (
+                suggestions.length > 0 && (
+                    <ul className="dropdown">
+                        {loading && (
+                            <li className="dropdown-item">
+                            Loading...
+                            </li>
+                        )}
+    
+                        {!loading && suggestions.map((cardName, index) => (
+                            <li 
+                                key={index} 
+                                onClick={() => handleSelectedCard(cardName)}
+                                className="dropdown-item"
+                            >
+                                {cardName}
+                            </li>
+                        ))}
+                    </ul>
+                )
             )}
         </div>
     );

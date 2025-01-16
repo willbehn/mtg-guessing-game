@@ -55,7 +55,7 @@ const GuessTheMtgCard = () => {
 
     return (
         <div>
-            <h1>Mana Guess - The MTG card guessing game</h1>
+            <h1>ManaGuess</h1>
             {loading ? (
                 <p>Loading...</p>
             ) : (
@@ -99,8 +99,6 @@ const GuessTheMtgCard = () => {
                                 </a>
 
                             </div>
-
-
                         </div>
                     )}      
                 </div>

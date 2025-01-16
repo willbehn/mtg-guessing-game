@@ -5,9 +5,16 @@
 }
 
 .inputarea {
+    font-family: 'Georgia', serif; 
     width: 100%;
     padding: 10px;
     font-size: 16px;
+}
+
+.inputarea::placeholder {
+    font-family: 'Georgia', serif; 
+    font-size: 16px; 
+    font-style: italic; 
 }
 
 .dropdown {

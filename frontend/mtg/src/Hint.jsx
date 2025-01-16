@@ -23,15 +23,23 @@ const findSymbol = (sm, symbols) =>{
 const Hint = ({hintData, symbolData, index}) => {
     return (
         <div style={{height:'50vh', width:'50vw', padding:10, alignItems: 'center'}}>
-                {hintData.type === "ARTWORK" ? (
-                    <>
+            {hintData.type === "ARTWORK" ? ((() => {
+                //temp løsning
+                const [artworkUri, artistName] = hintData.data.split("&");
+                return (
+                    <> 
                         <h3>Hint {index} - Artwork</h3>
-                        <img style={{width:460, height: 'auto'}} src={hintData.data}></img>
+                        <div style={{ padding: '0px', textAlign: 'center' }}>
+                            <img style={{ width: 460, height: 'auto' }} src={artworkUri} alt="Artwork" />
+                            <p style={{color: 'gray'}}>Artist: {artistName}</p>
+                        </div>
                     </>
-                ) : hintData.type === "CARD_TYPE" ? (  
+                );
+            })()
+        ) : hintData.type === "CARD_TYPE" ? (  
                     <>
                         <h3>Hint {index} -  Card type</h3> 
-                        <p style={{fontSize: 20}}>{hintData.data}</p>
+                        <p style={{fontSize: 30}}>{hintData.data}</p>
                     </>
 
                 ) : hintData.type === "SET_EXPANSION" ? (
@@ -47,17 +55,35 @@ const Hint = ({hintData, symbolData, index}) => {
         
                 ) : hintData.type === "ORACLE_TEXT" ? (
                     <>
-                        <h3>Hint {index} -  Oracle text</h3>    
-                        <p style={{fontSize: 20}}>{hintData.data}</p>
+                        <h3>Hint {index} - Oracle text</h3>    
+                        <p style={{fontSize: 30}}>{hintData.data}</p>
                     </>
 
                 ) : hintData.type === "POWER_THOUGHNESS" ? (  
                     <>
-                        <h3>Hint {index} -  Statline</h3> 
+                        <h3>Hint {index} - Statline</h3> 
                         {displaySymbol(hintData.data, symbolData)}
                     </>
 
-                ) : null}
+                ) : hintData.type === "RARITY" ? (  
+                    <>
+                        <h3>Hint {index} - Rarity</h3> 
+                        <p style={{fontSize: 30}}>{hintData.data}</p>
+                    </>
+
+                ): hintData.type === "RELEASED_AT" ? (  
+                    <>
+                        <h3>Hint {index} - Released at</h3> 
+                        <p style={{fontSize: 30}}>{hintData.data}</p>
+                    </>
+
+                ):hintData.type === "KEYWORDS" ? (  
+                    <>
+                        <h3>Hint {index} - Keywords</h3> 
+                        <p style={{fontSize: 30}}>{hintData.data}</p>
+                    </>
+
+                ):null}
         </div>
 
     );

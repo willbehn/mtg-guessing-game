@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/*general styling*/
+body {
+  color: #000000;
+  font-family: 'Georgia', serif; 
+  line-height: 1.8; 
+}
+
 a {
   font-weight: 500;
   color: #646cff;
