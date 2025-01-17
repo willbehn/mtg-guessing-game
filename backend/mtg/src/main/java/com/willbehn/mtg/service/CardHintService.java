@@ -32,7 +32,7 @@ public class CardHintService {
     public CardHintResponse createHints(){
         Card card = null;
         MtgSet set = null;
-        SymbolList symbols = null;
+        //SymbolList symbols = null;
 
         Random random = new Random();
 
@@ -42,7 +42,7 @@ public class CardHintService {
             set = setService.getSet(card.setCode);
 
             //Mby remove symbol retrieving from backend
-            symbols = symbolService.getSymbols();
+            //symbols = symbolService.getSymbols();
 
         } catch (IOException | InterruptedException e){
             //TODO
@@ -59,7 +59,7 @@ public class CardHintService {
         Hint oracleHint = new Hint(HintType.ORACLE_TEXT, card.oracleText);
         Hint statHInt = new Hint(HintType.POWER_THOUGHNESS, "{" + card.power + "}{" + card.toughness + "}");
         
-        return new CardHintResponse(card.name, card.getEdhrecUri(),card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,releasedAtHint,statHInt, keywordHint,rarityHint,artHint), symbols);
+        return new CardHintResponse(card.name, card.getEdhrecUri(),card.getNormalImageUrl(), LocalDate.now(), List.of(manaHint,typeHint,releasedAtHint,statHInt, keywordHint,rarityHint,artHint));
     }
 
     

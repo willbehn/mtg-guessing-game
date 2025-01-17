@@ -1,6 +1,9 @@
 import "./Hint.css"
+import allSymbols from './assets/symbols'
 
-const displaySymbol = (symbolString, symbols) => {
+const symbols = allSymbols.currentSymbols;
+
+const displaySymbol = (symbolString) => {
     const symbolList = symbolString.match(/\{.*?\}/g);
     return (
         <div style={{flexDirection: 'row'}}>  

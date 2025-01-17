@@ -87,7 +87,7 @@ const GuessTheMtgCard = () => {
                     {totalProgress < hintData.hints.length ? (
                         <>
                             <div>
-                                <Hint hintData={hintData.hints[currentHint]} symbolData={hintData.currentSymbols} index={currentHint+1} />
+                                <Hint hintData={hintData.hints[currentHint]} index={currentHint+1} />
                             </div>
                             <div className='inputContainer'>
                                 <ProgressBar currentHint={currentHint} totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
