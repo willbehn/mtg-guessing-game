@@ -30,9 +30,9 @@ const Hint = ({hintData, symbolData, index}) => {
                     <> 
                         <h3>Hint {index} - Artwork</h3>
                         <div style={{ padding: '0px', textAlign: 'center' }}>
-                            <img style={{ width: 460, height: 'auto' }} src={artworkUri} alt="Artwork" />
-                            <p style={{color: 'gray'}}>Artist: {artistName}</p>
+                            <img style={{ width: 460, height: 'auto'}} src={artworkUri} alt="Artwork" />
                         </div>
+                            <p style={{color: 'gray'}}>Artist: {artistName}</p>
                     </>
                 );
             })()

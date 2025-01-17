@@ -18,6 +18,7 @@
 }
 
 .dropdown {
+    color: black;
     position: absolute;
     width: 100%;
     background-color: white;
