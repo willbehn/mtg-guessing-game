@@ -61,7 +61,7 @@ const GuessTheMtgCard = () => {
                         <ul>
                             <li>The goal of the game is to guess the Magic: The Gathering card using as few hints as possible.</li>
                             <li>Hints are based on various details about the card, such as mana cost, keywords, artwork, and more.</li>
-                            <li>The current selection of cards consists of the top 70 creatures eligible as commander cards.</li>
+                            <li>The current selection of cards consists of the top 100 played cards on EDHREC</li>
                             <li>This is an early test version of Gather & Guess, so some features may not work as intended (e.g., on mobile).</li>
                             <li>
                                 Check out the GitHub repository: <a href="https://github.com/willbehn/mtg">GitHub</a>

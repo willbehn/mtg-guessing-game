@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,11 +38,8 @@ public class CardHintService {
     public CardHintResponse createHints() throws IOException, InterruptedException{
         Card card = null;
 
-        Random random = new Random();
         card = cardService.getCardTest();
         set = setService.getSet(card.setCode);
-
-            
         //symbols = symbolService.getSymbols();
 
         List<Hint> selectedHints = null;

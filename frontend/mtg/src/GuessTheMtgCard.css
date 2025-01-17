@@ -53,10 +53,11 @@
 
 .dialog-box {
     width: 50vw;
-    height: auto;
+    height: 20vw;
     padding: 12px;
     text-align: center;
     border: none;
+    overflow-y: auto;
 }
 
 .dialog-box ul {

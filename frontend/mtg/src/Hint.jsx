@@ -61,7 +61,7 @@ const Hint = ({hintData, symbolData, index}) => {
                 ) : hintData.type === "ORACLE_TEXT" ? (
                     <>
                         <h3>Hint {index} - Oracle text</h3>    
-                        <p style={{fontSize: 30}}>{hintData.data}</p>
+                        <p style={{fontSize: 20}}>{hintData.data}</p>
                     </>
 
                 ) : hintData.type === "POWER_THOUGHNESS" ? (  
