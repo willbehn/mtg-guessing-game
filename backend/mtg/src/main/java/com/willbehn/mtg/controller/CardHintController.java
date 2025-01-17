@@ -1,7 +1,8 @@
 package com.willbehn.mtg.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,9 +28,15 @@ public class CardHintController {
     @GetMapping("test")
     @CrossOrigin(origins = {"http://localhost:5173", "http://192.168.50.55:5173/"})
     public ResponseEntity<CardHintResponse> getDaily() {
-        CardHintResponse response = hintService.createHints();
+        try {
+            CardHintResponse response = hintService.createHints();
+            return ResponseEntity.ok(response);
 
-        return ResponseEntity.ok(response);
+        } catch (IOException | InterruptedException e){
+            return ResponseEntity.badRequest().build();
+        }
+        
+
     }
     
 }
