@@ -26,3 +26,46 @@
     width : 700px ; 
     padding:10 ;
 }
+
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog-box {
+    width: 50vw;
+    height: auto;
+    background-color: #fff;
+    padding: 12px;
+    text-align: center;
+    border: none;
+}
+
+.dialog-box p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.dialog-box ul {
+    text-align: left;
+    margin: 0 auto 20px;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.confirmButton {
+    height: 30;
+    width: 30;
+    flex: 1;
+    border-radius: 0px;
+    background-color: #fbfbfb;
+    color: #000000;
+}

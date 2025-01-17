@@ -12,6 +12,7 @@ const GuessTheMtgCard = () => {
     const [totalProgress, setTotalProgress] = useState(0)
     const [query, setQuery] = useState("");
     const [correctGuess, setCorrectGuess] = useState(false);
+    const [showDialog, setShowDialog] = useState(true)
 
     useEffect(() => {
         fetchCardHints();
@@ -55,7 +56,27 @@ const GuessTheMtgCard = () => {
 
     return (
         <div>
-            <h1>ManaGuess</h1>
+            <header>
+                <h1>Gather & Guess - Test</h1>
+            </header>
+
+            {showDialog && (<div className="dialog-overlay">
+                    <dialog className="dialog-box" open>
+                        <p>Welcome to Gather & Guess, the Magic: The Gathering card-guessing game!</p>
+                        <ul>
+                            <li>The goal of the game is to guess the card using as few hints as possible.</li>
+                            <li>Hints are based on various details about the card, such as mana cost, keywords, artwork, and more.</li>
+                            <li>The current selection of cards consists of the top 70 creatures eligible as commander cards. This selection is temporary and intended for testing purposes.</li>
+                            <li>Share your results with your friends when you're done!</li>
+                     
+                        </ul>
+                        <form method="dialog">
+                            <button className='confirmButton' onClick={() => setShowDialog(false)}>Got it!</button>
+                        </form>
+                    </dialog>
+                </div>)}
+
+
             {loading ? (
                 <p>Loading...</p>
             ) : (
@@ -75,9 +96,8 @@ const GuessTheMtgCard = () => {
                             <div className='buttonContainer'>
                                 <button className='actionButton' onClick={handleSumbit}> Submit </button>
                                 <button className='actionButton' onClick={nextHint}>Next hint</button>
+                                <button className='actionButton' onClick={()=> setShowDialog(true)}>Help</button>
                             </div>
-
-
                         </>
                     ) : (
                         <div className='solutionContainer'> 
@@ -104,7 +124,9 @@ const GuessTheMtgCard = () => {
                 </div>
             )}
 
-            <p style={{color: 'gray'}}>Card Data provided by Scryfall</p>
+            <footer>
+                <p style={{color: 'gray'}}>Card Data provided by Scryfall</p>
+            </footer>
         </div>
     );
 }
