@@ -2,7 +2,7 @@
 
 ## About
 
-This project is a game where users guess **Magic: The Gathering** cards based on various hints. The objective is to identify the card as quickly as possible using the fewest hints.
+This project is a game where users guess **Magic: The Gathering** cards based on various hints. The objective is to identify the card as quickly as possible using the fewest hints possible. 
 
 ### Key Features
 - The backend is implemented using Spring Boot, retrieving card data from the [Scryfall API](https://scryfall.com/docs/api). The data is processed into a series of hints for the user.
@@ -11,13 +11,14 @@ This project is a game where users guess **Magic: The Gathering** cards based on
 
 ## Technologies Used
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)  
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)  
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)  
-![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)  
-![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)  
-![CSS](https://img.shields.io/badge/CSS-254BDD?style=for-the-badge&logo=css3&logoColor=white)  
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-254BDD?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
 
 ## How to Run
 
@@ -44,4 +45,3 @@ This project is a game where users guess **Magic: The Gathering** cards based on
    npm run dev
    ```
 4. Open your browser and navigate to the displayed localhost URL.
-
