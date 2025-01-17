@@ -4,6 +4,7 @@ import Hint from './Hint';
 import ProgressBar from './ProgressBar';
 import "./GuessTheMtgCard.css"
 import Searchbar from './Searchbar';
+import mockCards from './mockCards';
 
 const GuessTheMtgCard = () => {
     const [hintData, setHintData] = useState(null);
@@ -18,16 +19,9 @@ const GuessTheMtgCard = () => {
     }, []);
 
     const fetchCardHints = async() => {
-        await axios.get('http://localhost:8080/api/test')
-            .then(response => {
-                setHintData(response.data);
-                console.log(response.data)
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error("Error fetching card image:", error);
-                setLoading(false);
-            });
+        const randomCard = mockCards[Math.floor(Math.random() * mockCards.length)];
+        setHintData(randomCard)
+        setLoading(false)
     };
 
     useEffect(() => {
