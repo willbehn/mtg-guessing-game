@@ -6,6 +6,7 @@ import "./Searchbar.css"
 const Searchbar = ({query, setQuery}) =>{
     const [suggestions, setSuggestions] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [userSelected, setUserSelected] = useState(false)
 
 
     const fetchCardNames = debounce(async() => {
@@ -36,7 +37,10 @@ const Searchbar = ({query, setQuery}) =>{
     }, 1000)
 
     useEffect(() => {
-        fetchCardNames();
+        if (!userSelected){
+            fetchCardNames();
+        }
+
 
         return () => {
             fetchCardNames.cancel();
@@ -45,13 +49,16 @@ const Searchbar = ({query, setQuery}) =>{
     }, [query])
 
     const handleSelectedCard = (cardName) => {
-        setQuery(cardName)
         setSuggestions([])
+        setQuery(cardName)
+        setUserSelected(true)
     }
 
 
     const handleInputChange = (e) => {
+        setUserSelected(false)
         const value = e.target.value;
+        
         setQuery(value);
     };
 
