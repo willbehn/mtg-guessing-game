@@ -1,7 +1,9 @@
+import "./Hint.css"
+
 const displaySymbol = (symbolString, symbols) => {
     const symbolList = symbolString.match(/\{.*?\}/g);
     return (
-        <>  
+        <div style={{flexDirection: 'row'}}>  
             {symbolList.map((element, index) => (
                 <img 
                     key={index} 
@@ -9,7 +11,7 @@ const displaySymbol = (symbolString, symbols) => {
                     style={{width : 100, height : 100, padding: 4}}>
                 </img>
             ))}
-        </>
+        </div>
         )
 }
 
@@ -22,17 +24,17 @@ const findSymbol = (sm, symbols) =>{
 
 const Hint = ({hintData, symbolData, index}) => {
     return (
-        <div style={{height:'50vh', width:'50vw', padding:10, alignItems: 'center'}}>
+        <div className="hintContainer">
             {hintData.type === "ARTWORK" ? ((() => {
                 //temp løsning
                 const [artworkUri, artistName] = hintData.data.split("&");
                 return (
                     <> 
                         <h3>Hint {index} - Artwork</h3>
-                        <div style={{ padding: '0px', textAlign: 'center' }}>
+                        <div className="imageContainer">
                             <img style={{ width: 460, height: 'auto'}} src={artworkUri} alt="Artwork" />
-                        </div>
                             <p style={{color: 'gray'}}>Artist: {artistName}</p>
+                        </div>
                     </>
                 );
             })()

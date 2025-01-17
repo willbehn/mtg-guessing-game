@@ -1,0 +1,14 @@
+.hintContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 50vh;
+}
+
+.imageContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

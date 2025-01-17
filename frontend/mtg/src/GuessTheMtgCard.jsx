@@ -53,22 +53,20 @@ const GuessTheMtgCard = () => {
         } else {nextHint()}
     }
 
-
     return (
         <div>
-            <header>
-                <h1>Gather & Guess - Test</h1>
-            </header>
-
             {showDialog && (<div className="dialog-overlay">
                     <dialog className="dialog-box" open>
-                        <p>Welcome to Gather & Guess, the Magic: The Gathering card-guessing game!</p>
+                        <h3>Welcome to Gather & Guess, the Magic: The Gathering card-guessing game!</h3>
                         <ul>
-                            <li>The goal of the game is to guess the card using as few hints as possible.</li>
+                            <li>The goal of the game is to guess the Magic: The Gathering card using as few hints as possible.</li>
                             <li>Hints are based on various details about the card, such as mana cost, keywords, artwork, and more.</li>
-                            <li>The current selection of cards consists of the top 70 creatures eligible as commander cards. This selection is temporary and intended for testing purposes.</li>
-                            <li>Share your results with your friends when you're done!</li>
-                     
+                            <li>The current selection of cards consists of the top 70 creatures eligible as commander cards.</li>
+                            <li>This is an early test version of Gather & Guess, so some features may not work as intended (e.g., on mobile).</li>
+                            <li>
+                                Check out the GitHub repository: <a href="https://github.com/willbehn/mtg">GitHub</a>
+                            </li>
+
                         </ul>
                         <form method="dialog">
                             <button className='confirmButton' onClick={() => setShowDialog(false)}>Got it!</button>
@@ -81,6 +79,10 @@ const GuessTheMtgCard = () => {
                 <p>Loading...</p>
             ) : (
                 <div className='gameContainer'> 
+                    <header>
+                        <h1>Gather & Guess - Test</h1>
+                    </header>
+
                     {console.log(hintData.cardName)}
                     {totalProgress < hintData.hints.length ? (
                         <>
@@ -90,7 +92,6 @@ const GuessTheMtgCard = () => {
                             <div className='inputContainer'>
                                 <ProgressBar currentHint={currentHint} totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
                                 <Searchbar query={query} setQuery={setQuery}></Searchbar>
-                                
                             </div>
 
                             <div className='buttonContainer'>
@@ -102,23 +103,26 @@ const GuessTheMtgCard = () => {
                     ) : (
                         <div className='solutionContainer'> 
                             {correctGuess ? (
-                                <h3>🎉 You guessed it right! 🎉 </h3>
+                                <h2>🎉 You guessed it right! 🎉 </h2>
                             ) : (
-                                <h3>❌ Better luck next time! ❌</h3>
+                                <h2>❌ Better luck next time! ❌</h2>
                             )}
 
-                            <div>
-                                <h2>
+                            <>
+                                <h3>
                                     The card was: <span style={{ color: "purple" }}>{`${hintData.cardName}`}</span>
-                                </h2>
+                                </h3>
 
                                 <img style={{width:360, height: 'auto'}} src={hintData.imageUri}></img>
 
-                                <a href={hintData.edhrecUrl} rel="noreferrer">
-                                    <h3>EDHREC</h3>
-                                </a>
+                                <div className='shareContainer'>
+                                    <a href={hintData.edhrecUrl} rel="noreferrer">
+                                        <h3>EDHREC</h3>
+                                    </a>
+                                    <button className='shareButton'>Share your result</button>
+                                </div>
 
-                            </div>
+                            </>
                         </div>
                     )}      
                 </div>

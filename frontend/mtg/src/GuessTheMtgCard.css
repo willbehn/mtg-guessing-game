@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 72vh;
+    height: 100%;
     width: 100%;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .inputContainer {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,9 +22,20 @@
 }
 
 .solutionContainer {
-    height:400px, ;
-    width : 700px ; 
-    padding:10 ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shareContainer {
+    justify-content: center;
+    padding: 2px;
+}
+
+.shareButton {   
+    border-radius: 0px;
+    background-color: #fbfbfb;
+    color: #000000;
 }
 
 .dialog-overlay {
@@ -43,15 +54,9 @@
 .dialog-box {
     width: 50vw;
     height: auto;
-    background-color: #fff;
     padding: 12px;
     text-align: center;
     border: none;
-}
-
-.dialog-box p {
-    font-size: 18px;
-    margin-bottom: 10px;
 }
 
 .dialog-box ul {
