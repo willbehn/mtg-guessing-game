@@ -1,4 +1,4 @@
-# MTG
+# mtg-guessing-game
 
 ## About
 
@@ -6,8 +6,8 @@ This project is a game where users guess **Magic: The Gathering** cards based on
 
 ### Key Features
 - The backend is implemented using Spring Boot, retrieving card data from the [Scryfall API](https://scryfall.com/docs/api). The data is processed into a series of hints for the user.
-- The frontend is built with React and communicates with the backend to display hints and gather user input. The frontend also fetches data direclty from teh scryfall api for card name suggestions.
-- **The project is currently a work in progress, but you can view a demo [here](https://vercel-test-lyart-one.vercel.app).**
+- The frontend is built with React and communicates with the backend to display hints and gather user input. The frontend also fetches data direclty from the scryfall api for card name suggestions.
+- **The project is currently a work in progress, but you can view a demo [here](https://mtg-guessing-game.vercel.app).**
 
 ## Technologies Used
 
