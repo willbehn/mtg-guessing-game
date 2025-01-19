@@ -15,9 +15,22 @@
 
 
 /*general styling*/
-body {
+/*body {
   font-family: 'Georgia', serif; 
   line-height: 1.8; 
+}*/
+
+
+body {
+  margin: 0; 
+  padding: 0; 
+  height: 100vh; 
+  background-image: url('RobAlexander.png'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-attachment: fixed; 
+  font-family: 'Georgia', serif;
 }
 
 a {

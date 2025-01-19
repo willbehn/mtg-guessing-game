@@ -1,9 +1,11 @@
+/*Progressbar.css*/
+
 .progressContainer {
     width: 100%;
     align-items: center;
     display: flex;
-    justify-content: center;
-    
+    justify-content: space-around;
+    gap: 8px;
 }
 
 .progressButton {
@@ -14,6 +16,8 @@
     border-radius: 0px;
     background-color: #fbfbfb;
     color: #000000;
+    border: 2px solid white;
+    border-radius: 8px;
 }
 
 .currentProgressButton {
@@ -23,6 +27,9 @@
     border-radius: 0px;
     background-color: #dcdcdc;
     color: #000000;
+    border: 1px solid #ccc; 
+    border: 2px solid white;
+    border-radius: 8px;
  
 }
 
@@ -35,6 +42,9 @@
     padding: 10px;
     background-color: #fbfbfb;
     color: #000000;   
+    border: 1px solid #ccc; 
+    border: 2px solid white;
+    border-radius: 8px;
 }
 
 

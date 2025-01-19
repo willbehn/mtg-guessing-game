@@ -1,9 +1,10 @@
-/* Style for the search container */
+/* Searchbar,css */
 .search-container {
     position: relative;
     justify-content: center;
     align-items: center;
     width: 80%;  
+    
 }
 
 .inputarea {
@@ -11,18 +12,31 @@
     width: 100%;
     padding: 10px;
     font-size: 16px;
+
+    border: 1px solid #ccc; 
+    border-radius: 20px; 
+    background-color: #fbfbfb;
+    color: #000000;
+}
+
+.inputarea:focus {
+    border-color: #0078D7; 
+    box-shadow: 0 0 4px rgba(0, 120, 215, 0.5); 
 }
 
 .inputarea::placeholder {
     font-family: 'Georgia', serif; 
     font-size: 16px; 
     font-style: italic; 
+    color: #aaa;
 }
 
 .dropdown {
+    border-radius: 12px;
     color: black;
     position: absolute;
     width: 100%;
+    border: 1px solid #ccc;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     max-height: 180px;
@@ -34,7 +48,7 @@
 }
 
 .dropdown-item {
-    padding: 8px;
+    padding: 8px 16px;
     cursor: pointer;
 }
 

@@ -85,21 +85,26 @@ const GuessTheMtgCard = () => {
 
                     {console.log(hintData.cardName)}
                     {totalProgress < hintData.hints.length ? (
-                        <>
+                        <div>
                             <div>
                                 <Hint hintData={hintData.hints[currentHint]} index={currentHint+1} />
                             </div>
                             <div className='inputContainer'>
                                 <ProgressBar currentHint={currentHint} totalProgress={totalProgress} onProgressClick={handleProgressClick}></ProgressBar>
                                 <Searchbar query={query} setQuery={setQuery}></Searchbar>
+
+                                <div className={'buttonContainer'}>
+                                
+                                    <button className='actionButton' onClick={handleSumbit}> Submit </button>
+                                    <button className='actionButton' onClick={nextHint}>Next hint</button>
+                                    <button className='actionButton' onClick={()=> setShowDialog(true)}>Help</button>
+                                    
+                                </div>
+
                             </div>
 
-                            <div className='buttonContainer'>
-                                <button className='actionButton' onClick={handleSumbit}> Submit </button>
-                                <button className='actionButton' onClick={nextHint}>Next hint</button>
-                                <button className='actionButton' onClick={()=> setShowDialog(true)}>Help</button>
-                            </div>
-                        </>
+                            
+                        </div>
                     ) : (
                         <div className='solutionContainer'> 
                             {correctGuess ? (
@@ -128,8 +133,9 @@ const GuessTheMtgCard = () => {
                 </div>
             )}
 
-            <footer>
-                <p style={{color: 'gray'}}>Card Data provided by Scryfall</p>
+            <footer style={{ padding: 4, margin: 0, gap: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <p style={{ color: 'black', margin: 0 }}>Card Data provided by Scryfall</p>
+                <p style={{ color: 'black', margin: 0 }}>Background image artist: Rob Alexander</p>
             </footer>
         </div>
     );

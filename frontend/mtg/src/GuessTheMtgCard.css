@@ -1,16 +1,44 @@
+/*GuessTheMtgCard.css*/
+
 .gameContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
+    padding: 20px; 
+    gap: 20px; 
     height: 100%;
     width: 100%;
+    box-sizing: border-box; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    max-width: 800px;
+    margin: 0 auto; 
+
+    border: 2px solid white;
+    border-radius: 8px;
+}
+
+.gameContainer header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gameContainer h1 {
+    font-size: 24px;
+    font-family: 'Georgia', serif;
+    color: #333;
+    margin: 0;
 }
 
 .buttonContainer {
-    flex-direction: column;
-    flex: 1;
-    padding: 12px;
+    display: flex; 
+    flex-direction: row; 
+    flex: 1; 
+    padding: 8px; 
+    gap: 12px; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .inputContainer {
@@ -19,12 +47,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 16px;
 }
 
 .solutionContainer {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 800px; 
+    color: black;
+    padding: 20px;
+   
 }
 
 .shareContainer {
@@ -36,6 +71,8 @@
     border-radius: 0px;
     background-color: #fbfbfb;
     color: #000000;
+    border: 2px solid white;
+    border-radius: 8px;
 }
 
 .dialog-overlay {
@@ -52,12 +89,18 @@
 }
 
 .dialog-box {
+    color: #333;
+    max-width: 600px; 
+    height: auto; 
     width: 50vw;
-    height: 20vw;
     padding: 12px;
     text-align: center;
     border: none;
     overflow-y: auto;
+    background-color: rgb(255, 255, 255); 
+
+    border: 2px solid white;
+    border-radius: 8px;
 }
 
 .dialog-box ul {
@@ -74,4 +117,11 @@
     border-radius: 0px;
     background-color: #fbfbfb;
     color: #000000;
+}
+
+
+@media (max-width: 768px) {
+    .dialog-box {
+        width: 90%; 
+    }
 }
