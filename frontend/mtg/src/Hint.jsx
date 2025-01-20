@@ -35,7 +35,7 @@ const Hint = ({hintData, symbolData, index}) => {
                     <> 
                         <h3>Hint {index} - Artwork</h3>
                         <div className="imageContainer">
-                            <img style={{ width: 460, height: 'auto'}} src={artworkUri} alt="Artwork" />
+                            <img className="responsiveImage" src={artworkUri} alt="Artwork" />
                             <p style={{color: 'gray'}}>Artist: {artistName}</p>
                         </div>
                     </>

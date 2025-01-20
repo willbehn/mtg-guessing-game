@@ -108,17 +108,18 @@ const GuessTheMtgCard = () => {
                     ) : (
                         <div className='solutionContainer'> 
                             {correctGuess ? (
-                                <h2>🎉 You guessed it right! 🎉 </h2>
+                                <h4>🎉 You guessed it right! 🎉 </h4>
                             ) : (
-                                <h2>❌ Better luck next time! ❌</h2>
+                                <h4>❌ Better luck next time! ❌</h4>
                             )}
 
-                            <>
-                                <h3>
+                                <p>
                                     The card was: <span style={{ color: "purple" }}>{`${hintData.cardName}`}</span>
-                                </h3>
+                                </p>
+                                <div className='imageCard'>
+                                    <img className='responsiveImageCard' src={hintData.imageUri}></img>
+                                </div>
 
-                                <img style={{width:360, height: 'auto'}} src={hintData.imageUri}></img>
 
                                 <div className='shareContainer'>
                                     <a href={hintData.edhrecUrl} rel="noreferrer">
@@ -127,8 +128,8 @@ const GuessTheMtgCard = () => {
                                     <button className='shareButton'>Share your result</button>
                                 </div>
 
-                            </>
                         </div>
+                        
                     )}      
                 </div>
             )}
