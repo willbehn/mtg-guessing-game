@@ -53,6 +53,15 @@ const GuessTheMtgCard = () => {
         } else {nextHint()}
     }
 
+    const resetCard = () => {
+        setLoading(true)
+        setCurrentHint(1)
+        setTotalProgress(0)
+        setQuery("")
+        setCorrectGuess(false)
+        fetchCardHints();
+    }
+
     return (
         <div>
             {showDialog && (<div className="dialog-overlay">
@@ -126,6 +135,7 @@ const GuessTheMtgCard = () => {
                                         <h3>EDHREC</h3>
                                     </a>
                                     <button className='shareButton'>Share your result</button>
+                                    <button onClick={(()=> resetCard())} className='shareButton'>Play again</button>
                                 </div>
 
                         </div>
