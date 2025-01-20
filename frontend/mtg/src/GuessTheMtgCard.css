@@ -14,10 +14,24 @@
     border-radius: 8px;
 }
 
-.gameContainer header {
+
+
+.headerContainer {
     width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px; /* Adjust to your desired width */
 }
 
 .gameContainer h1 {

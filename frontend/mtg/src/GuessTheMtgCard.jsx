@@ -88,9 +88,17 @@ const GuessTheMtgCard = () => {
                 <p>Loading...</p>
             ) : (
                 <div className='gameContainer'> 
-                    <header>
+                    <div className='headerContainer'>
+
                         <h1>Gather & Guess - Test</h1>
-                    </header>
+
+                        <div className="navigation">
+                            <a>Previous</a>
+                            <a>Next</a>
+
+                        </div>
+                        
+                    </div>
 
                     {console.log(hintData.cardName)}
                     {totalProgress < hintData.hints.length ? (
@@ -122,9 +130,10 @@ const GuessTheMtgCard = () => {
                                 <h4>❌ Better luck next time! ❌</h4>
                             )}
 
-                                <p>
-                                    The card was: <span style={{ color: "purple" }}>{`${hintData.cardName}`}</span>
-                                </p>
+                                <h4>
+                                    The card was: <span style={{ color: "#D4AF37" }}>{`${hintData.cardName}`}</span>
+                                </h4>
+
                                 <div className='imageCard'>
                                     <img className='responsiveImageCard' src={hintData.imageUri}></img>
                                 </div>
