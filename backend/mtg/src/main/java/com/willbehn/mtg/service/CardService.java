@@ -24,6 +24,8 @@ public class CardService {
 
     private final String apiUrl = "https://api.scryfall.com/cards/random?q=type%3Alegendary+type%3Acreature";
 
+    
+
     public Card getCard() throws IOException, InterruptedException {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()

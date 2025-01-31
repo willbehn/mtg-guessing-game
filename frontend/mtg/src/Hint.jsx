@@ -88,6 +88,12 @@ const Hint = ({hintData, symbolData, index}) => {
                         <p style={{fontSize: 30}}>{hintData.data}</p>
                     </>
 
+                ):hintData.type === "NAME" ? (  
+                    <>
+                        <h3>Hint {index} - Name</h3> 
+                        <p style={{fontSize: 30}}>{hintData.data}</p>
+                    </>
+
                 ):null}
         </div>
 
